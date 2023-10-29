@@ -14,11 +14,11 @@ function Counter() {
     }
   }, [count]);
 
-	function addCount() {
+	function handleIncrement() {
 		setCount(count + 1)
 	}
 
-	function subCount() {
+	function handleDecrement() {
 		count > 0 ? setCount(count - 1) : setCount(0)		
 	}
 
@@ -47,12 +47,12 @@ function Counter() {
 
 			<button 
 				className="btn btn-sm btn-secondary mr-2" 
-				onClick={subCount}>Decrement -
+				onClick={handleDecrement}>Decrement -
 			</button>
 
 			<button 
 				className="btn btn-sm btn-success" 
-				onClick={addCount}>
+				onClick={handleIncrement}>
 				Increment +
 			</button>
 
