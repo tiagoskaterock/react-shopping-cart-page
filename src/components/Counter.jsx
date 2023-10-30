@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 function Counter(props) {
 
-	console.log(props)
-
-	let [value, setValue] = useState(props.value);
+	let [value, setValue] = useState(props.counter.value);
 	let [classes, setClasses] = useState("mr-2 badge badge-warning");	
 
 	useEffect(() => {
@@ -23,14 +21,10 @@ function Counter(props) {
 		value > 0 ? setValue(value - 1) : setValue(0)		
 	}
 
-	function onDelete() {
-		alert('onDelete')
-	}
-
 	return (
 		<div className="text-center">
 
-			<h4 className="mt-4">{props.title} $ {props.price}</h4>
+			<h4 className="mt-4">{props.counter.title} $ {props.counter.price}</h4>
 
 			<span className={classes}>
 				{value === 0 ? 'ZERO' : value}
@@ -49,7 +43,7 @@ function Counter(props) {
 
 			<button 
 				className="btn btn-sm btn-danger ml-2"
-				onClick={props.onDelete}>				
+				onClick={ () => props.onDelete(props.counter.id) }>				
 				Delete
 			</button>
 			

@@ -3,15 +3,17 @@ import Counter from "./Counter";
 
 function Counters() {
 
-	const counters = [
+	const oldCounters = [
 		{ id:1, value: 0, title: 'TV', price: 299.99 },
 		{ id:2, value: 3, title: 'Game Console', price: 399.99 },
 		{ id:3, value: 5, title: 'Smartphone', price: 599.99 },
 		{ id:4, value: 2, title: 'Book: ', price: 29.99 }
 	]
 
-	function handleDelete() {
-		alert('handleDelete')
+	let [counters, setCounters] = useState(oldCounters);
+
+	const handleDelete = (id) => {				
+		setCounters(counters.filter(c => c.id !== id))
 	}
 
 	return (
@@ -21,10 +23,8 @@ function Counters() {
 					c => 
 					<Counter 
 						key={c.id} 
-						onDelete={handleDelete}
-						value={c.value} 
-						title={c.title} 
-						price={c.price} 
+						onDelete={ () => handleDelete(c.id) }
+						counter={c}
 					/>											
 				)
 			}		
