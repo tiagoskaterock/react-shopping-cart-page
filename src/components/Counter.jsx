@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from 'react';
 
-function Counter() {
+function Counter(props) {
 
-	let [count, setCount] = useState(0);
+	console.log(props)
+
+	let [value, setValue] = useState(props.value);
 	let [classes, setClasses] = useState("mr-2 badge badge-warning");	
 	const tags = ['react', 'laravel', 'bootstrap', 'django']
 
 	useEffect(() => {
-    if (count === 0) {
+    if (value === 0) {
       setClasses("mr-2 badge badge-warning");
     } else {
       setClasses("mr-2 badge badge-primary");
     }
-  }, [count]);
+  }, [value]);
 
 	function handleIncrement() {
-		setCount(count + 1)
+		setValue(value + 1)
 	}
 
 	function handleDecrement() {
-		count > 0 ? setCount(count - 1) : setCount(0)		
+		value > 0 ? setValue(value - 1) : setValue(0)		
 	}
 
 	function renderTags() {
@@ -42,7 +44,7 @@ function Counter() {
 	return (
 		<div className="text-center">
 			<span className={classes}>
-				{count === 0 ? 'ZERO' : count}
+				{value === 0 ? 'ZERO' : value}
 				</span>
 
 			<button 
