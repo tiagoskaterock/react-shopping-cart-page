@@ -10,6 +10,10 @@ function Counters() {
 		{ id:4, value: 2, title: 'Book: ', price: 29.99 }
 	]
 
+	function handleDelete() {
+		alert('handleDelete')
+	}
+
 	return (
 		<div className="text-center">
 			{
@@ -17,6 +21,7 @@ function Counters() {
 					c => 
 					<Counter 
 						key={c.id} 
+						onDelete={handleDelete}
 						value={c.value} 
 						title={c.title} 
 						price={c.price} 

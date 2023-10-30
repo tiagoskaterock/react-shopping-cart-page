@@ -23,6 +23,10 @@ function Counter(props) {
 		value > 0 ? setValue(value - 1) : setValue(0)		
 	}
 
+	function onDelete() {
+		alert('onDelete')
+	}
+
 	return (
 		<div className="text-center">
 
@@ -42,6 +46,12 @@ function Counter(props) {
 				onClick={handleIncrement}>
 				Increment +
 			</button>	
+
+			<button 
+				className="btn btn-sm btn-danger ml-2"
+				onClick={props.onDelete}>				
+				Delete
+			</button>
 			
 		</div>
 	)
