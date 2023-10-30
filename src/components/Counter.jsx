@@ -6,7 +6,6 @@ function Counter(props) {
 
 	let [value, setValue] = useState(props.value);
 	let [classes, setClasses] = useState("mr-2 badge badge-warning");	
-	const tags = ['react', 'laravel', 'bootstrap', 'django']
 
 	useEffect(() => {
     if (value === 0) {
@@ -24,25 +23,11 @@ function Counter(props) {
 		value > 0 ? setValue(value - 1) : setValue(0)		
 	}
 
-	function renderTags() {
-		return tags.length === 0 ? <p>No tags</p> : showTags()		
-	}
-
-	function showTags() {
-		return <ul> { 
-			tags.map( 
-				tag => 
-					<li 
-						key={tag} 
-						className="list-unstyled">
-						{tag}
-					</li>
-			) 
-		}	</ul>
-	}
-
 	return (
 		<div className="text-center">
+
+			<h4 className="mt-4">{props.title} $ {props.price}</h4>
+
 			<span className={classes}>
 				{value === 0 ? 'ZERO' : value}
 				</span>
@@ -56,9 +41,7 @@ function Counter(props) {
 				className="btn btn-sm btn-success" 
 				onClick={handleIncrement}>
 				Increment +
-			</button>
-
-			{renderTags()}
+			</button>	
 			
 		</div>
 	)
