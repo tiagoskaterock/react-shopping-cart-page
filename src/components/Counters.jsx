@@ -16,8 +16,21 @@ function Counters() {
 		setCounters(counters.filter(c => c.id !== id))
 	}
 
+	const handleReset = () => {
+		let auxCounters = counters.map(c => {
+			c.value = 0
+			return c
+		})
+		setCounters(auxCounters)
+	}
+
 	return (
 		<div className="text-center">
+			<button 
+				className="btn btn-sm btn-primary"
+				onClick={handleReset}>
+				Reset
+			</button>
 			{
 				counters.map(
 					c => 
