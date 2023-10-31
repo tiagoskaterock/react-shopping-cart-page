@@ -24,6 +24,24 @@ function Counters() {
 		setCounters(auxCounters)
 	}
 
+	const handleIncrement = counter => {
+		let auxCounters = [...counters]
+		const index = counters.indexOf(counter)		
+		auxCounters[index] = {...counter}
+		auxCounters[index].value += 1
+		setCounters(auxCounters)
+	}
+
+	const handleDecrement = counter => {
+		let auxCounters = [...counters]
+		const index = counters.indexOf(counter)		
+		auxCounters[index] = {...counter}
+		if(auxCounters[index].value > 0) {
+			auxCounters[index].value -= 1			
+			setCounters(auxCounters)
+		}
+	}
+
 	return (
 		<div className="text-center">
 			<button 
@@ -37,6 +55,8 @@ function Counters() {
 					<Counter 
 						key={c.id} 
 						onDelete={ () => handleDelete(c.id) }
+						onIncrement={ () => handleIncrement(c) }
+						onDecrement={ () => handleDecrement(c) }
 						counter={c}
 					/>											
 				)
