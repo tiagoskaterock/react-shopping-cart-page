@@ -1,11 +1,14 @@
 import Counter from './components/Counter'
 import Counters from './components/Counters'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <div className="jumbotron">
-      <h1 className="text-center mb-4">Amazing Shopping Cart</h1>
-      <Counters />
+    <div>
+      <Navbar />
+      <div className="container">
+        <Counters />
+      </div>
     </div>
   );
 }
